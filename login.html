@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="theme-color" content="#0b1026">
+<meta content='Kapten Nemo' name='Author' />
+<title>Login Hotspot</title>
+<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+<link rel="stylesheet" href="css/fontawesome.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script src="js/custom.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="main-header">
+    <div class="top-border"></div>
+    <img src="img/logo.png" style="border-radius: 5px; width:100%; max-width: 300px; height:auto;"/>
+<h1 class="appbar-title shine"> </h1>
+<span class="appbar-description">Unlimited Internet Hotspot Service</span>
+  </header>
+<hr class="separator separator--line" />
+  <main>
+<nav>
+  <ul>
+    <li class="active"><a href="" onclick="voucher();">Voucher</a></li>
+    <li><a href="" onclick="member();">Member</a></li>
+  </ul>
+</nav>
+    <form name="login" class="login-form" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="false" />
+        <input id="username" class="" name="username" type="text" autocomplete="off" required/>
+        <input id="password" class="password" name="password" placeholder="Password" autocomplete="off" type="hidden" required />
+    $(if error)
+    <div id="infoError" class="infoError">
+   <script type="text/javascript">
+    var error = "$(error)";
+    var error1 = "user $(username) has reached uptime limit";
+    var error2 = "user $(username) has reached traffic limit";
+    var error3 = "no valid profile found";
+    var error4 = "invalid username or password";
+    var error5 = "user &lt;$(username)&gt; not found";
+    var error6 = "simultaneous session limit reached";
+    var error7 = "no more sessions are allowed for user $(username)"
+    if (error == error1 || error == error2 || error == error3) {
+     document.getElementById("infoError").innerHTML = '<i class="fa fa-info-circle"></i><b> MASA AKTIF VOUCHER ANDA SUDAH HABIS! </b>';
+    } else if (error == error4) {
+     document.getElementById("infoError").innerHTML = '<i class="fa fa-info-circle"></i><b> KODE VOUCHER ATAU MEMBER SALAH ATAU TIDAK TERDAFTAR DI SERVER KAMI! </b>';
+    } else if (error == error5) {
+     document.getElementById("infoError").innerHTML = '<i class="fa fa-info-circle"></i><b> KODE VOUCHER ATAU MEMBER ANDA TIDAK DITEMUKAN! </b>';
+    } else if (error == error6) {
+     document.getElementById("infoError").innerHTML = '<i class="fa fa-info-circle"></i><b> JUMLAH SESI LOGIN DIBATASI! </b>';
+    } else if (error == error7) {
+     document.getElementById("infoError").innerHTML = '<i class="fa fa-info-circle"></i><b> KODE VOUCHER ATAU MEMBER SEDANG DIGUNAKAN PADA PERANGKAT LAIN! </b>';
+    } else {
+     document.getElementById("infoError").innerHTML = '<i class="fa fa-info-circle"></i><b> $(error) </b>';
+    }
+   </script>
+  </div>
+    $(endif)
+    <!---OFF LOGIN
+    <input type="submit" class="btn" value="LOGIN">
+    OFF LOGIN--->
+    <button class="btn" type="submit"><i class="fa fa-sign-in"></i> LOGIN</button>
+    $(if trial == 'yes')
+    <button type="button" class="btnemo fb-btn" onclick="location.href = '$(link-login-only)?dst=$(link-orig-esc)&username=T-$(mac-esc)';"><i class="fa fa-leaf" aria-hidden="true"></i> Coba 2 Menit Gratis</button>
+    $(endif)
+    </form>
+<div class="box">
+            <div class="paket-voucher">
+      <h3 class="blink font-size:13px;color:#fff;text-shadow: 1px 0 1px #333; margin:0 auto;"><i class="fa fa-wifi" aria-hidden="true"></i> DAFTAR HARGA VOUCHER <i class="fa fa-wifi" aria-hidden="true"></i></h3>
+            </div>
+            <div class="stats">
+              <div> <strong><i class="fa fa-clock-o"></i> AKTIF</strong>2 JAM</div>
+              <div> <strong><i class="fa fa-hourglass-half"></i> KUOTA</strong>Unlimited</div>
+              <div> <a class="btn btn-merah beli-voucher"><i class="fa fa-ticket"></i> 2.000</a>
+              </div>
+            </div>
+            <div class="stats">
+              <div> <strong><i class="fa fa-clock-o"></i> AKTIF</strong>8 JAM</div>
+              <div> <strong><i class="fa fa-hourglass-half"></i> KUOTA</strong>Unlimited</div>
+              <div> <a class="btn btn-merah beli-voucher"><i class="fa fa-ticket"></i> 3.000</a>
+              </div>
+            </div>
+
+            <div class="stats">
+              <div> <strong><i class="fa fa-clock-o"></i> AKTIF</strong>24 JAM</div>
+              <div> <strong><i class="fa fa-hourglass-half"></i> KUOTA</strong>Unlimited</div>
+              <div> <a class="btn btn-merah beli-voucher"><i class="fa fa-ticket"></i> 5.000</a>
+              </div>
+            </div>
+
+            <div class="stats">
+              <div> <strong><i class="fa fa-clock-o"></i> AKTIF</strong>7 HARI</div>
+              <div> <strong><i class="fa fa-hourglass-half"></i> KUOTA</strong>Unlimited</div>
+              <div> <a class="btn btn-merah beli-voucher"><i class="fa fa-ticket"></i> 10.000</a>
+              </div>
+            </div>
+
+            <div class="stats">
+              <div> <strong><i class="fa fa-clock-o"></i> AKTIF</strong>30 HARI</div>
+              <div> <strong><i class="fa fa-hourglass-half"></i> KUOTA</strong>Unlimited</div>
+              <div> <a class="btn btn-merah beli-voucher"><i class="fa fa-ticket"></i> 50.000</a>
+              </div>
+            </div>
+  </main>
+  <footer>
+          <table class="table">
+          <caption style="font-size: 13px;color:#ffffff;text-shadow: 1px 0 1px #333;margin:0 auto;line-height:1.2em;"><i class="fa fa-whatsapp"></i> 081909094491 | MEET</caption>
+          <caption style="font-size: 11px;color:#ffffff;text-shadow: 1px 0 1px #333;margin:0 auto;line-height:1.1em;">Beli Voucher atau Flash Token Listrik Melalui Nomor WhatsApp Diatas atau Langsung Ke Rumah, Terimakasih.</caption></br>
+                </div>
+  </footer>
+</div>
+$(if chap-id)
+<form name="sendin" action="$(link-login-only)" method="post">
+<input type="hidden" name="username" />
+<input type="hidden" name="password" />
+<input type="hidden" name="dst" value="$(link-orig)" />
+<input type="hidden" name="popup" value="false" />
+</form>
+<script type="text/javascript" src="md5.js"></script>
+<script type="text/javascript">
+function doLogin() {
+  document.sendin.username.value = document.login.username.value;
+  document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+  document.sendin.submit();
+  return false;
+}
+</script>
+$(endif)
+<script type="text/javascript">
+var host = window.location.hostname;
+document.title = "ADEL NET", window.onload = voucher();
+function kodevoucher() {
+    var e = document.getElementById("username").value //.toLowerCase(); //.toUpperCase();
+    document.getElementById("username").value = e, document.getElementById("password").value = e
+}
+function voucher() {
+    document.getElementById("username").oninput = kodevoucher, document.getElementById("username").placeholder = "Ketik kode voucher disini...", document.getElementById("password").type = "hidden"
+}
+function member() {
+    document.getElementById("username").oninput = "", document.getElementById("username").placeholder = "Username", document.getElementById("password").type = "password"
+}
+</script>
+<!---START SCRIPT TIMEOUT ERROR--->
+<script>
+$(document).ready(function() {
+  window.setTimeout(function() {
+    $(".infoError").fadeTo(1000, 0).slideUp(1000, function() {
+      $(this).remove();
+    });
+  }, 13000);
+});
+</script>
+<!---STOP SCRIPT TIMEOUT ERROR--->
+<!---START SCRIPT TIMEOUT IKLAN--->
+<script>
+$(document).ready(function() {
+  window.setTimeout(function() {
+    $(".popup").fadeTo(1000, 0).slideUp(2000, function() {
+      $(this).remove();
+    });
+  }, 15000);
+});
+</script>
+<!---STOP SCRIPT TIMEOUT IKLAN--->
+<!---OFF IKLAN
+<div id="popup" class="popup">
+        <span class="close-btn" onclick="hidePopup()"><i class="fa fa-times-circle"></i></span></br>
+        <h4 class="font-size:15px;color:#red;text-shadow: 0px 0 0px #333; margin:0 auto;"></i>
+<i class="fa fa-exclamation-circle"></i>  BONUS+  <i class="fa fa-exclamation-circle"></i>
+</h4><p style="line-height:1.1em;">
+Beli voucher 5 ribu, gratis 10 voucher harga 1 ribu. Bonus berlaku hanya malam minggu dan hari minggu.
+</p>
+<p style="font-weight: bold; font-size: 10px;color:#e30e1f;margin:0 auto;line-height:1.2em;"> Klik tanda <i class="fa fa-times-circle"></i> untuk menutup iklan.</p></bold>
+</div>
+    <script>
+        function showPopup() {
+            document.getElementById("popup").style.display = "block";
+        }
+        function hidePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+OFF IKLAN--->
+</body>
+</html>

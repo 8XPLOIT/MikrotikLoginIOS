@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content='Kapten Nemo' name='Author' />
+  <meta name="theme-color" content="#0b1026">
+  <title>Login Gratis</title>
+<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+<link rel="stylesheet" href="css/fontawesome.min.css"/>
+<link rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<style>
+.fade-in{-webkit-animation:fade-in 2s ease;-moz-animation:fade-in ease-in-out 2s both;-ms-animation:fade-in ease-in-out 2s both;-o-animation:fade-in ease-in-out 2s both;animation:fade-in 2s ease;visibility:visible;-webkit-backface-visibility:hidden}@-webkit-keyframes fade-in{0%{opacity:0}100%{opacity:1}}@-moz-keyframes fade-in{0%{opacity:0}100%{opacity:1}}@-o-keyframes fade-in{0%{opacity:0}100%{opacity:1}}@keyframes fade-in{0%{opacity:0}100%{opacity:1}}.master-circle{display:inline-flex;width:50px;height:50px}.circle{display:inline-flex;position:absolute;justify-content:center;align-items:center;border:5px solid #F80000;height:50px;width:50px;border-radius:50px;transform:rotateY(180deg);animation-name:clipCircle;animation-duration:30s;animation-iteration-count:infinite;animation-timing-function:cubic-bezier(0,0,1,1);animation-direction:reverse}@keyframes clipCircle{0%{clip-path:polygon(50% 50%,50% 0%,50% 0%,50% 0%,50% 0%,50% 0%,50% 0%,50% 0%,50% 0%,50% 0%)}12.5%{clip-path:polygon(50% 50%,50% 0%,0% 0%,0% 0%,0% 0%,0% 0%,0% 0%,0% 0%,0% 0%,0% 0%)}25%{clip-path:polygon(50% 50%,50% 0%,0% 0%,0% 50%,0% 50%,0% 50%,0% 50%,0% 50%,0% 50%,0% 50%)}37.5%{clip-path:polygon(50% 50%,50% 0%,0% 0%,0% 50%,0% 100%,0% 100%,0% 100%,0% 100%,0% 100%,0% 100%)}50%{clip-path:polygon(50% 50%,50% 0%,0% 0%,0% 50%,0% 100%,50% 100%,50% 100%,50% 100%,50% 100%,50% 100%)}62.5%{clip-path:polygon(50% 50%,50% 0%,0% 0%,0% 50%,0% 100%,50% 100%,100% 100%,100% 100%,100% 100%,100% 100%)}75%{clip-path:polygon(50% 50%,50% 0%,0% 0%,0% 50%,0% 100%,50% 100%,100% 100%,100% 50%,100% 50%,100% 50%)}87.5%{clip-path:polygon(50% 50%,50% 0%,0% 0%,0% 50%,0% 100%,50% 100%,100% 100%,100% 50%,100% 0%,100% 0%)}100%{clip-path:polygon(50% 50%,50% 0%,0% 0%,0% 50%,0% 100%,50% 100%,100% 100%,100% 50%,100% 0%,50% 0%)}}.seconds{color:#FFFFFF;position:absolute;display:inline-flex;height:50px;width:50px;justify-content:center;align-items:center;font-size:15px}
+ </style>
+</head>
+<div class="container">
+  <header class="main-header">
+    <div class="top-border"></div>
+  </header>
+<body>
+    <!-- TRIAL USER -->
+      <div style="margin:10px auto 0px; text-align: center;color:#fff;font-size:12px;"><h3 id="trial-login">Mohon Menunggu...</br>
+        </br>
+       <div class="master-circle">
+        <div class="circle"></div>
+        <div class="seconds"></div>
+       </div>
+       </br>
+      </h3>
+      <div id="banner-load"></div>
+      $(if trial == 'yes')
+      <h3 id="counter-trial" style="display: none;"><p style="color:#fff;font-size:11px; text-align:center;margin:10px auto;">Klik Tombol di Bawah Untuk lanjut 🙂</p><a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"><button class="btn btn-full btn-nemobut"><i class="fa fa-leaf" aria-hidden="true"></i> Login 2 Menit Gratis</button></a>
+      </h3>
+      $(else)
+      <h3 id="counter-trial" style="display: none;"><p style="color:#fff;font-size:11px; text-align:center;margin:10px auto;">Percobaan gratis 2 menit Anda Hari ini sudah habis, silahkan beli voucher melalui WhatsApp 🙂</p><a href="login.html"><button class="btn btn-full btn-merah"><i class="fa fa-undo" aria-hidden="true"></i> Kembali Ke Menu</button></a>
+      </h3>
+      $(endif)
+     </div>
+     <div class="separator"></div>
+    </div>
+    <!-- end trial user -->
+<script type="text/javascript">
+$(document).ready(function() {
+var images = ['iklan.png'];
+    $('<img class="fade-in img-responsive border-radius" src="img/' + images[Math.floor(Math.random() * images.length)] + '">').appendTo('#banner-load');
+});
+let secondsCountdown = 30;
+const seconds = document.getElementsByClassName("seconds");
+seconds[0].innerHTML = `<span>${secondsCountdown}</span>`;
+function countdown() {
+  secondsCountdown -= 1;
+  if (secondsCountdown < 0) {
+document.getElementById("trial-login").style = 'display:none';
+document.getElementById("counter-trial").style = 'display:block';
+  } else {
+    seconds[0].innerHTML = `<span>${secondsCountdown}</span>`;
+    window.setTimeout("countdown()", 1000);
+  }
+}
+countdown();
+</script>
+<!-- end script -->
+</body>
+</html>
